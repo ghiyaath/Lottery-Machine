@@ -32,8 +32,10 @@ value_label.config(bg="yellow")
 value_label.pack()
 banks.place(x=300, y=355)
 
+
 def close():
     window.destroy()
+
 
 exit_btn = Button(text="Quit", bg="blue", fg="white", borderwidth=5, font="Arial 15 bold", command=exit)
 exit_btn.place(x=600, y=450, height=70, width=80)

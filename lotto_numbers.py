@@ -15,14 +15,30 @@ def play_lotto():
         num = random.randint(1, 49)
         lotto_list.append(num)
 
-    en_1.insert(0, lotto_list[0])
-    en_2.insert(0, lotto_list[1])
-    en_3.insert(0, lotto_list[2])
-    en_4.insert(0, lotto_list[3])
-    en_5.insert(0, lotto_list[4])
-    en_6.insert(0, lotto_list[5])
+    ent_1.insert(0, lotto_list[0])
+    ent_2.insert(0, lotto_list[1])
+    ent_3.insert(0, lotto_list[2])
+    ent_4.insert(0, lotto_list[3])
+    ent_5.insert(0, lotto_list[4])
+    ent_6.insert(0, lotto_list[5])
 
-    return lotto_list
+    lotto_list = set(lotto_list)
+    entered_numbers = {int(en_1.get()), int(en_2.get()), int(en_3.get()), int(en_4.get()), int(en_5.get()), int(en_6.get())}
+    count = lotto_list.intersection(entered_numbers)
+    win_not = len(count)
+    print(win_not)
+    if win_not == 2:
+        messagebox.showinfo("Congratulations ", "You win R20.00")
+    elif win_not == 3:
+        messagebox.showinfo("Congratulations", "You win R100.50")
+    elif win_not == 4:
+        messagebox.showinfo("Congratulations", "You win R2,384.00")
+    elif win_not == 5:
+        messagebox.showinfo("Congratulations", "you win R8,584.00")
+    elif win_not == 6:
+        messagebox.showinfo("Congratulations", "You win R10 000 000.00")
+    else:
+        messagebox.showinfo("You Lose", "Please Try Again")
 
 
 value_label = Label(window, text="Lottery", font=("Italic", 25))
@@ -57,23 +73,23 @@ en_6.place(x=550, y=200, width=70)
 lbl2_heading = Label(window, text="Today's Lotto Numbers", font=("Garuda bold", 20), bg="yellow")
 lbl2_heading.place(x=150, y=300)
 
-en_1 = Entry(window)
-en_1.place(x=50, y=350, width=40, height=25)
+ent_1 = Entry(window)
+ent_1.place(x=50, y=350, width=40, height=25)
 
-en_2 = Entry(window)
-en_2.place(x=150, y=350, width=40, height=25)
+ent_2 = Entry(window)
+ent_2.place(x=150, y=350, width=40, height=25)
 
-en_3 = Entry(window)
-en_3.place(x=250, y=350, width=40, height=25)
+ent_3 = Entry(window)
+ent_3.place(x=250, y=350, width=40, height=25)
 
-en_4 = Entry(window)
-en_4.place(x=350, y=350, width=40, height=25)
+ent_4 = Entry(window)
+ent_4.place(x=350, y=350, width=40, height=25)
 
-en_5 = Entry(window)
-en_5.place(x=450, y=350, width=40, height=25)
+ent_5 = Entry(window)
+ent_5.place(x=450, y=350, width=40, height=25)
 
-en_6 = Entry(window)
-en_6.place(x=550, y=350, width=40, height=25)
+ent_6 = Entry(window)
+ent_6.place(x=550, y=350, width=40, height=25)
 
 play_lotto_No_btn = Button(text="Play Lotto Numbers", bg="black", fg="white", borderwidth=5, font="Ariel 12 bold", command=play_lotto)
 play_lotto_No_btn.place(x=250, y=400, height=70, width=200)
@@ -105,6 +121,13 @@ def clear():
     en_4.delete(0, END)
     en_5.delete(0, END)
     en_6.delete(0, END)
+
+    ent_1.delete(0, END)
+    ent_2.delete(0, END)
+    ent_3.delete(0, END)
+    ent_4.delete(0, END)
+    ent_5.delete(0, END)
+    ent_6.delete(0, END)
 
 
 clear_btn = Button(text="Clear", bg="grey", fg="white", borderwidth=5, font="Ariel 15 bold", command=clear)

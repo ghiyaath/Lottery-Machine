@@ -22,7 +22,6 @@ entry1 = Label(window, text="FULLNAME :", bg="yellow", font=("Arial", 15))
 entry1.place(x=50, y=50)
 entry_1 = Entry(window)
 entry_1.place(x=200, y=50)
-
 entry2 = Label(window, text="E-Mail :", bg="yellow", font=("Arial", 15))
 entry2.place(x=50, y=100)
 entry_2 = Entry(window)
@@ -71,15 +70,15 @@ def verify():
         # Shows error sign
     except ValueError:
 
-        messagebox.showerror("", "")
+        messagebox.showerror("Error", "Enter A Valid  ID number and try again .")
 
 
 def quit_program():
-    msg_box = messagebox.askquestion("Exit Application", "Are you sure you want to exit the application ?", icon='warning')
+    msg_box = messagebox.askquestion("Exit Application", "Are you sure you want to exit ?", icon='warning')
     if msg_box == "yes":
         window.destroy()
     else:
-        messagebox.showinfo("Return", "You will now return to the App", icon="warning")
+        messagebox.showinfo("Return", "You will now return to the login", icon="warning")
 
 
 exit_btn = Button(window, text="Exit", bg="blue", fg="white", borderwidth=5, font="Arial 15 bold", command=quit_program)
