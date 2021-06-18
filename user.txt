@@ -1,0 +1,7 @@
+
+player :ghiyaath
+email :ghiyaath@gmail.com
+Id :0012235091084
+player :ghiyaath
+email :ghiyaath@gmai.com
+Id :0012235091084
