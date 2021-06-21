@@ -1,2 +1,2 @@
 from playsound import playsound
-playsound("Hahaha sound effect.mp3")
+playsound("wrong sound.mp3")

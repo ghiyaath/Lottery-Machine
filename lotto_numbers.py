@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from playsound import playsound
 
 # creation of the window
 window = Tk()
@@ -13,6 +14,8 @@ def play_again():
     if msg_box == "yes":
         window.destroy()
         import lotto_numbers
+    else:
+        messagebox.showinfo("Return", "You will now return to the app", icon="warning")
 
 
 # generation of numbers
@@ -38,18 +41,24 @@ def play_lotto():
     win_not = len(count)
     print(win_not)
     if win_not == 2:
+        playsound("jackpot_lucio.mp3")
         messagebox.showinfo("Congratulations ", "You win R20.00")
     elif win_not == 3:
+        playsound("jackpot_lucio.mp3")
         messagebox.showinfo("Congratulations", "You win R100.50")
     elif win_not == 4:
+        playsound("jackpot_lucio.mp3")
         messagebox.showinfo("Congratulations", "You win R2,384.00")
     elif win_not == 5:
+        playsound("jackpot_lucio.mp3")
         messagebox.showinfo("Congratulations", "you win R8,584.00")
     elif win_not == 6:
+        playsound("jackpot_lucio.mp3")
         messagebox.showinfo("Congratulations", "You win R10 000 000.00")
         # if you do not win a messagebox will pop up
     else:
         messagebox.showinfo("You Lose", "Please Try Again")
+        playsound("loser.mp3")
 
 
 # Labels
@@ -128,7 +137,7 @@ def claim():
         window.destroy()
         import Claim_reward
     else:
-        window.destroy()
+        messagebox.showinfo("Return", "You will now return to the app", icon="warning")
 
 
 # Takes you to claim whatever you win

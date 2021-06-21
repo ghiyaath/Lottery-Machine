@@ -3,9 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 from playsound import playsound
 import rsaidnumber
-# import re
 import smtplib
-# from email.meme.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import date
 from dateutil.relativedelta import relativedelta
@@ -25,12 +23,13 @@ value_label.config(bg="yellow")
 value_label.pack()
 
 
+# Verifies your email
 def email_verify():
     if entry_2.get() == "":
         messagebox.showerror("ERROR", "Enter a Valid Email")
     elif entry_2.get() != "":
         try:
-            sender_email_id = "jimmy.local.lotto"
+            sender_email_id = "ghiyaathwilliams2@gmail.com"
             receiver_email_id = entry_2.get()
             password = ""
             subject = "Lotto"
@@ -48,6 +47,7 @@ def email_verify():
             s.quit()
             # populate.dict()
         except:
+            playsound("wrong sound.mp3")
             messagebox.showerror("ERROR", "Invalid email,please make sure to put in a valid email")
 # img = PhotoImage(file="mic.png")
 # lbl = Label(window, image=img).place(x=250, y=100, width=200, height=150)
@@ -75,12 +75,13 @@ def entry__1():
     #     messagebox.showerror("Error", "Please enter your Fullname")
 
     if entry_1.get() == "":
+        playsound("wrong sound.mp3")
         messagebox.showerror("Error", "You have to enter all fields to continue")
 
     else:
         messagebox.showinfo("Correct info given", "You have entered the right details")
-        window.destroy()
         playsound("DaBaby Oh lord, Jetson made another one sound effect.mp3")
+        window.destroy()
         import lotto_numbers
 
 
@@ -96,10 +97,11 @@ def verify():
         Validate_person()
         #  Checks if the id_number is valid.
         if len(entry_3.get()) != 13:
-            playsound("")
+            playsound("wrong sound.mp3")
             messagebox.showerror("Error", "Please enter correct ID number")
 
-        elif id_number == " ":
+        elif id_number == "":
+            playsound("wrong sound.mp3")
             messagebox.showerror("Error", "Enter correct details")
 
         elif real_age >= 18:
@@ -108,13 +110,15 @@ def verify():
             entry__1()
 
         else:
-            messagebox.showinfo("You're not old enough", "")
+            playsound("wrong sound.mp3")
+            messagebox.showinfo("Error", "You're not old enough")
         # Shows error sign if you're not old enough
     except ValueError:
-
+        playsound("wrong sound.mp3")
         messagebox.showerror("Error", "Enter A Valid  ID number and try again .")
 
 
+# gets your information to make you a player id  out of the information that you put in
 def Validate_person():
     player = entry_1.get()
     email = entry_2.get()
@@ -133,30 +137,6 @@ def Validate_person():
     playerfile.write("\n")
 
     playerfile.write("Id :" + Id)
-
-
-# defines if you entered all fields to continue and it checks if the correct input has been entered
-# if so then you would be taken to the next window .
-def blah():
-    # Variables
-    id_number = entry_3.get()
-    email_ad = entry_2.get()
-    regex = ("^[a-z0-9]+[\._]?[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$")
-    #   Checking if  the input is Valid
-    if entry_1.get() == "":
-        playsound("Hahaha sound effect.mp3")
-        messagebox.showerror("ERROR", "Please Enter Your Name")
-    elif len(entry_3.get()) > 13 or len(entry_3.get()) < 13:
-        playsound("Hahaha sound effect.mp3")
-        messagebox.showerror("Error", "ID Number Must Have 13 Numbers")
-    elif not id_number.isdigit():
-        playsound("Hahaha sound effect.mp3")
-        messagebox.showerror("ERROR", "ID Number Only Has Numbers")
-    elif not re.search(regex, email_ad):
-        playsound("Hahaha sound effect.mp3")
-        messagebox.showerror("ERROR", "Please Check If Email Is Correctly Inserted")
-    else:
-        verify()
 
 
 # if you want to exit the window a messagebox would pop up to ask if you want to leave the program
